@@ -100,7 +100,25 @@ public class ApiController {
             return null;
         return "success";
 
+    }
 
+    @PostMapping("/api/v1/doctor/patient")
+    public String removePatient(Patient patient) {
+        log.info("get param = {}", patient);
+        myService.removePatient(patient);
+        return "success";
+    }
+
+    @PostMapping("/api/v1/patient/one/1")
+    public String updateProfile(Patient patient) {
+        log.info("get param = {}", patient);
+        myService.updatePatient(patient);
+        return "success";
+    }
+
+    @GetMapping("/api/v1/doctor/all")
+    public String getAllDoc() {
+        return JSON.toJSONString(myService.getAllDoctors());
     }
 
 }

@@ -18,10 +18,14 @@ public interface PatientRepo extends JpaRepository<Patient, Integer> {
 
     Patient findById(int id);
 
-    @Query(value = "select doctorid where patientid = ?", nativeQuery = true)
+    @Query(value = "select doctorid from t_patient where patientid = ?", nativeQuery = true)
     int findDoctorIdById(int id);
 
 
-    @Query(value = "select * where doctorid = ?",nativeQuery = true)
+    @Query(value = "select * from t_patient where doctorid = ?",nativeQuery = true)
     List<Patient> getAllPatients(int doctorid);
+
+    void removeById(int id);
+
+
 }

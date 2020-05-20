@@ -32,4 +32,10 @@ public interface MyService {
 
     List<Patient> getAllPatients(Doctor doctor);
 
+    void removePatient(Patient patient);
+
+    Patient updatePatient(Patient patient);
+
+    List<Doctor> getAllDoctors();
+
 }

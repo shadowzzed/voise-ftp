@@ -155,6 +155,23 @@ public class MyServiceImpl implements MyService {
         return patientRepo.getAllPatients(doctor.getId());
     }
 
+    @Override
+    public void removePatient(Patient patient) {
+        if (Integer.valueOf(patient.getId()) == null)
+            return;
+        patientRepo.removeById(patient.getId());
+    }
+
+    @Override
+    public Patient updatePatient(Patient patient) {
+        return patientRepo.save(patient);
+    }
+
+    @Override
+    public List<Doctor> getAllDoctors() {
+        return doctorRepo.findAll();
+    }
+
     private Boolean judgeParam(Voise voise) {
         if (StringUtils.isEmpty(voise.getEnd()) ||
                 StringUtils.isEmpty(voise.getPatientid()) ||
